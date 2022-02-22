@@ -3,3 +3,7 @@ git stach
 git stash list
 
 git revert
+
+git log
+
+git log --oneline
