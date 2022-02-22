@@ -1,1 +1,3 @@
 git stach
+ 
+git stash list
