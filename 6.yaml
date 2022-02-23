@@ -1,0 +1,26 @@
+---
+- hosts: dev
+  user: ansible
+  become: yes
+  vars:
+    motd_centos: "Welcome to Centos  \n"
+    motd_ubuntu: "Wlecome to Ubuntu \n"
+   
+  tasks:
+    - name: Message of the day
+      copy:
+        content: "{{ motd_centos }}"
+        dest: /etc/demo_motd
+      notify: MOTD changed
+      when: ansible_distribution == "CentOS"
+    - name: Message of the day
+      copy:
+        content: "{{ motd_ubuntu }}"
+        dest: /etc/demo_motd
+      notify: MOTD changed
+      when: ansible_distribution == "Ubuntu"
+
+  handlers:
+    - name: MOTD changed
+      debug:
+        msg: Motd was changed
