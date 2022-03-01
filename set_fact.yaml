@@ -1,0 +1,20 @@
+---
+- hosts: dev
+  user: ansible
+  become: true
+  tasks:
+    - name: set our installion variables for centos
+      set_fact:
+        webserver_application_port: 80
+        webserver_application_path: /usr/share/nginx/html
+        webserver_application_user: root
+      when: ansible_distribution == 'CentOS'
+    - name: set our installation variables for ubuntu
+      set_fact:
+        webserver_application_port: 8080
+        webserver_application_path: /var/www/html
+        webserver_application_user: nginx
+      when: ansible_distribution == 'Ubuntu'
+    - name: Show pre-set distributtion based facts
+      debug:
+        msg: "webser_application_port:{{ webserver_application_port }} webserver_application_path: {{ webserver_application_path }} webserver_application_user: {{ webserver_application_user }}"
