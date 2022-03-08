@@ -1,0 +1,5 @@
+---
+# import_playbook is static
+
+- import_playbook: imported_playbook.yaml
+  when: import_playbook_var is not defined

@@ -1,0 +1,13 @@
+---
+-
+  hosts: dev
+  user: ansible
+  become: true
+  tasks:
+    - name: Exploring register
+      command: hostname -s
+      register: hostname_output
+
+    - name: Show hostname_output
+      debug:
+        var: hostname_output.stdout

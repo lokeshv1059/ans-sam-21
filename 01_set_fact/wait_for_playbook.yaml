@@ -1,0 +1,9 @@
+---
+-
+  hosts: ut
+  user: ansible
+  become: true
+  tasks:
+    - name: Wait for the webserver to be running on port 80
+      wait_for:
+        port: 80

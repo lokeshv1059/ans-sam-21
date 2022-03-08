@@ -1,0 +1,14 @@
+---
+-
+  hosts: dev
+  user: ansible
+  become: true
+  tasks:
+    - name: Set a fact
+      set_fact:
+        our_fact: Cheking fact using Ansible !
+
+    - name: Show custom fact
+      debug:
+        msg: "{{ our_fact }}"
+

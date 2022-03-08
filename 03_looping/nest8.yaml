@@ -1,0 +1,11 @@
+---
+-
+  hosts: ut
+  user: ansible
+  become: true
+  tasks:
+    - name: Create hex sequence directories
+      file:
+        dest: "{{ item }}"
+        state: directory
+      with_sequence: count=15 format=/home/raja/count_sequence_%x

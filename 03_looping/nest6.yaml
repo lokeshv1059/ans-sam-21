@@ -1,0 +1,11 @@
+---
+-
+  hosts: ut
+  user: ansible
+  become: true
+  tasks:
+    - name: Create sequence directories
+      file:
+        dest: "{{ item }}"
+        state: directory
+      with_sequence: start=0 end=100 stride=20 format=/home/raja/sequence_%d

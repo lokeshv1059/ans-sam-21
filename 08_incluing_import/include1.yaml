@@ -1,0 +1,11 @@
+---
+-
+  hosts: ut
+  user: ansible
+  become: true
+  tasks:
+     - name: Play 1 - Task 1
+       debug: 
+         msg: Play 1 - Task 1
+
+     - include_tasks: play1_task2.yaml

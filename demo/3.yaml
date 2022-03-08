@@ -1,0 +1,10 @@
+---
+- hosts: dev
+  user: ansible
+  become: yes
+  gather_facts: false
+  tasks:
+    - name: Message of the day
+      copy:
+        content: This message copied by using content
+        dest: /etc/demo_motd

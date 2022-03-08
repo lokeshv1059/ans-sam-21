@@ -1,0 +1,27 @@
+---
+-
+  hosts: ut
+  user: ansible
+  become: true
+  tasks:
+    - name: Creating user
+      user:
+        name: "{{ item.1 }}"
+        comment: "{{ item.1 | title }} {{ item.0.surname }}"
+        password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters,digits,hexdigits,punctuation') | password_hash('sha512') }}"
+      with_subelements: 
+        - 
+          - surname: SLA
+            members:
+             - raja
+             - murali
+          - surname: TG
+            members:
+             - Noel
+          - surname: FSL
+            members:
+             - krishna
+          - surname: Aimor
+            members:
+             - Salem
+        - members

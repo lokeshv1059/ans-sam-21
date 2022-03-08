@@ -1,0 +1,13 @@
+---
+-
+  hosts: ut
+  user: ansible
+  become: true
+  tasks:
+  vars_files:
+     - external_vault_vars.yaml
+  tasks:
+
+    - name: Show external_vault_var
+      debug:
+        var: external_vault_var

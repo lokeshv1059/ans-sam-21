@@ -1,0 +1,17 @@
+---
+-
+  hosts: dev
+  user: ansible
+  become: true
+  tasks:
+    - name: Creating user
+      user:
+        name: "{{ item.1 }}"
+        comment: "{{ item.1 | title }} {{ item.0.surname }}"
+      with_subelements: 
+        - family:
+            surname: sla
+            members:
+             - raja
+             - murali
+        - members

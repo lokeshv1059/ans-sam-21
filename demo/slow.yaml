@@ -1,0 +1,11 @@
+---
+- hosts: dev
+  user: ansible
+  become: true
+  tasks:
+    - name: Task 1
+      command: /bin/sleep 5
+      when: ansible_hostname == 'redhat'
+    - name: Task 2
+      command: /bin/sleep 5
+      when: ansible_hostname == 'ubuntu'

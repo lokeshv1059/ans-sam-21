@@ -1,0 +1,12 @@
+---
+-
+  hosts: ut
+  user: ansible
+  become: true
+  tasks:
+    - name: Create authorized key
+      authorized_key:
+        user: raja
+        key: "{{ item }}"
+      with_file:
+        - /home/ansible/.ssh/id_rsa.pub

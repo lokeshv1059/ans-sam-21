@@ -1,0 +1,12 @@
+---
+-
+  hosts: ut
+  user: ansible
+  become: true
+  tasks:
+
+     - set_fact:
+         import_playbook_var: true
+
+     - debug:
+         msg: Playbook executed
