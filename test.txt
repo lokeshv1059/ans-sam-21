@@ -10,6 +10,12 @@ git log --oneline
 
 lokeshvasu1234  
 
+<<<<<<< HEAD
 this is a new line which added by lokesh
 
 this is another line added by lokesh by 12.02am
+=======
+this is a new line which added by lokesh 
+
+this code has been send by hub 12am by lokeshv
+>>>>>>> b1a96d1828fea7473d9553a40e595a875add912d
